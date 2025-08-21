@@ -41,6 +41,14 @@ function App() {
           }
         />
         <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/tasks"
           element={
             <ProtectedRoute>
