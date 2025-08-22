@@ -24,7 +24,7 @@ export const useAuthStore = create((set) => ({
     try {
       set({ loading: true, error: null });
       const res = await API.post("/auth/login", data, {
-        headers: { "Content-Type": "application/json" }, // keep it only here
+        withCredentials: true, // 👈 important!
       });
 
       set({ user: res.data.user, token: res.data.token });
