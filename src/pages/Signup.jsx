@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
 
 const Signup = () => {
-  const { signup, user, token, error } = useAuthStore();
+  const { signup, user, token, error, checkingAuth } = useAuthStore();
   const navigate = useNavigate();
 
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -16,7 +16,7 @@ const Signup = () => {
   }
 
   useEffect(() => {
-    if (!checkingAuth && user && token) {   
+    if (!checkingAuth && user && token) {
       navigate("/dashboard");
     }
   }, [user, token, checkingAuth, navigate]);
