@@ -6,7 +6,7 @@ export const useAuthStore = create((set) => ({
   token: localStorage.getItem("token") || null,
   loading: false,
   error: null,
-  checkingAuth: true, // ✅ new flag
+  checkingAuth: true,
 
   signup: async (data) => {
     try {
@@ -23,9 +23,7 @@ export const useAuthStore = create((set) => ({
   login: async (data) => {
     try {
       set({ loading: true, error: null });
-      const res = await API.post("/auth/login", data, {
-        withCredentials: true, // 👈 important!
-      });
+      const res = await API.post("/auth/login", data);
 
       set({ user: res.data.user, token: res.data.token });
       localStorage.setItem("token", res.data.token);

@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL:
-    "https://next-backend-apa6.onrender.com/api" || "http://localhost:5000/api",
+  baseURL: "https://next-backend-apa6.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
